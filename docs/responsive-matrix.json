@@ -1,0 +1,1906 @@
+[
+  {
+    "label": "admin dashboard",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "workers",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "admin bookings",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "admin complaints",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "analytics",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "settings",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "worker verification",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "admin dashboard",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "workers",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "admin bookings",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "admin complaints",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "analytics",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "settings",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "worker verification",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "admin dashboard",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "workers",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "admin bookings",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "admin complaints",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "analytics",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "settings",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "worker verification",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "admin dashboard",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "workers",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "admin bookings",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "admin complaints",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "analytics",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "settings",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "worker verification",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "worker dashboard",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "job requests",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "my jobs",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "earnings",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "availability",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "worker profile",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "worker dashboard",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "job requests",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "my jobs",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "earnings",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "availability",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "worker profile",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "worker dashboard",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "job requests",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "my jobs",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "earnings",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "availability",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "worker profile",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "worker dashboard",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "job requests",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "my jobs",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "earnings",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "availability",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "worker profile",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "worker dashboard",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "job requests",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "my jobs",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "earnings",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "availability",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "worker profile",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "worker dashboard",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "job requests",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "my jobs",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "earnings",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "availability",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "worker profile",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "worker dashboard",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "job requests",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "my jobs",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "earnings",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "availability",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "worker profile",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "worker dashboard",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "job requests",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "my jobs",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "earnings",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "availability",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "worker profile",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "customer dashboard",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "service list",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "customer bookings",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "customer profile",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "service details",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "booking form",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "available workers",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "booking tracking",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "review form",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "complaint form",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "notifications",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "worker details",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "booking confirmation",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "customer dashboard",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "service list",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "customer bookings",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "customer profile",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "service details",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "booking form",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "available workers",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "booking tracking",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "review form",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "complaint form",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "notifications",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "worker details",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "booking confirmation",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "customer dashboard",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "service list",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "customer bookings",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "customer profile",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "service details",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "booking form",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "available workers",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "booking tracking",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "review form",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "complaint form",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "notifications",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "worker details",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "booking confirmation",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "customer dashboard",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "service list",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "customer bookings",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "customer profile",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "service details",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "booking form",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "available workers",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "booking tracking",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "review form",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "complaint form",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "notifications",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "worker details",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "booking confirmation",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "customer dashboard",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "service list",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "customer bookings",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "customer profile",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "service details",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "booking form",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "available workers",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "booking tracking",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "review form",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "complaint form",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "notifications",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "worker details",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "booking confirmation",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "customer dashboard",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "service list",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "customer bookings",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "customer profile",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "service details",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "booking form",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "available workers",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "booking tracking",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "review form",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "complaint form",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "notifications",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "worker details",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "booking confirmation",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "customer dashboard",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "service list",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "customer bookings",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "customer profile",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "service details",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "booking form",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "available workers",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "booking tracking",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "review form",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "complaint form",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "notifications",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "worker details",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "booking confirmation",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "customer dashboard",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "service list",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "customer bookings",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "customer profile",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "service details",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "booking form",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "available workers",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "booking tracking",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "review form",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "complaint form",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "notifications",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "worker details",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "booking confirmation",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "splash",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "onboarding",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "role selection",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "login",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "customer registration",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "worker registration",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "account recovery",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "splash",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "onboarding",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "role selection",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "login",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "customer registration",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "worker registration",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "account recovery",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "splash",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "onboarding",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "role selection",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "login",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "customer registration",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "worker registration",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "account recovery",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "splash",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "onboarding",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "role selection",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "login",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "customer registration",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "worker registration",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "account recovery",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "splash",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "onboarding",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "role selection",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "login",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "customer registration",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "worker registration",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "account recovery",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "splash",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "onboarding",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "role selection",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "login",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "customer registration",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "worker registration",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "account recovery",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "splash",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "onboarding",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "role selection",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "login",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "customer registration",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "worker registration",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "account recovery",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "splash",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "onboarding",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "role selection",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "login",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "customer registration",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "worker registration",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "account recovery",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  },
+  {
+    "label": "admin dashboard",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "workers",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "admin bookings",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "admin complaints",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "analytics",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "settings",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "worker verification",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "complaint dialog",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "admin dashboard",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "workers",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "admin bookings",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "admin complaints",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "analytics",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "settings",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "worker verification",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "complaint dialog",
+    "requestedWidth": 375,
+    "documentWidth": 375,
+    "overflow": [],
+    "width": 375
+  },
+  {
+    "label": "admin dashboard",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "workers",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "admin bookings",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "admin complaints",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "analytics",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "settings",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "worker verification",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "complaint dialog",
+    "requestedWidth": 390,
+    "documentWidth": 390,
+    "overflow": [],
+    "width": 390
+  },
+  {
+    "label": "admin dashboard",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "workers",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "admin bookings",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "admin complaints",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "analytics",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "settings",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "worker verification",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "complaint dialog",
+    "requestedWidth": 430,
+    "documentWidth": 430,
+    "overflow": [],
+    "width": 430
+  },
+  {
+    "label": "complaint dialog",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "complaint dialog",
+    "requestedWidth": 1024,
+    "documentWidth": 1024,
+    "overflow": [],
+    "width": 1024
+  },
+  {
+    "label": "complaint dialog",
+    "requestedWidth": 1280,
+    "documentWidth": 1280,
+    "overflow": [],
+    "width": 1280
+  },
+  {
+    "label": "complaint dialog",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  }
+]

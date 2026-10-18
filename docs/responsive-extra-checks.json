@@ -1,0 +1,23 @@
+[
+  {
+    "label": "expanded complaint categories",
+    "requestedWidth": 320,
+    "documentWidth": 320,
+    "overflow": [],
+    "width": 320
+  },
+  {
+    "label": "expanded complaint categories",
+    "requestedWidth": 768,
+    "documentWidth": 768,
+    "overflow": [],
+    "width": 768
+  },
+  {
+    "label": "expanded complaint categories",
+    "requestedWidth": 1440,
+    "documentWidth": 1440,
+    "overflow": [],
+    "width": 1440
+  }
+]
