@@ -18,7 +18,12 @@
         "backgroundColor": "#163A5F"
       },
       "package": "com.coopconnect.app",
-      "softwareKeyboardLayoutMode": "resize"
+      "softwareKeyboardLayoutMode": "resize",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -56,6 +61,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "root": "src/app"
+      },
+      "eas": {
+        "projectId": "b45288be-1de4-4285-9be0-affaa6f7b4d3"
+      }
     }
   }
 }
