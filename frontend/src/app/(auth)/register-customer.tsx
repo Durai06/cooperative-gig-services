@@ -98,9 +98,22 @@ export default function RegisterCustomerScreen() {
             <ArrowLeft size={22} color={Colors.textPrimary} />
           </TouchableOpacity>
 
-          <Text style={styles.title}>Create Account</Text>
+          {/* Auth mode toggle */}
+          <View style={styles.authModeToggle}>
+            <TouchableOpacity
+              style={styles.authModeBtn}
+              onPress={() => router.push("/(auth)/login?role=customer")}
+            >
+              <Text style={styles.authModeInactiveText}>Log In</Text>
+            </TouchableOpacity>
+            <View style={[styles.authModeBtn, styles.authModeActive]}>
+              <Text style={styles.authModeActiveText}>Register as Customer</Text>
+            </View>
+          </View>
+
+          <Text style={styles.title}>Customer Registration</Text>
           <Text style={styles.subtitle}>
-            Register as a customer to book services
+            Create your account to book trusted local cooperative workers
           </Text>
 
           <View style={styles.form}>
@@ -237,6 +250,34 @@ const styles = StyleSheet.create({
   kav: { flex: 1 },
   scroll: { padding: Spacing.base, paddingBottom: Spacing.xxxl },
   backBtn: { marginBottom: Spacing.xl, padding: 4, alignSelf: "flex-start" },
+  authModeToggle: {
+    flexDirection: "row",
+    backgroundColor: "#F0F4F8",
+    borderRadius: Radius.lg,
+    padding: 4,
+    marginBottom: Spacing.base,
+  },
+  authModeBtn: {
+    flex: 1,
+    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: Radius.md,
+  },
+  authModeActive: {
+    backgroundColor: "#FFFFFF",
+    ...Shadows.sm,
+  },
+  authModeActiveText: {
+    fontSize: Typography.fontSize.sm,
+    fontWeight: Typography.fontWeight.bold,
+    color: Colors.textPrimary,
+  },
+  authModeInactiveText: {
+    fontSize: Typography.fontSize.sm,
+    fontWeight: Typography.fontWeight.medium,
+    color: Colors.textSecondary,
+  },
   title: {
     fontSize: Typography.fontSize.display,
     fontWeight: Typography.fontWeight.extraBold,

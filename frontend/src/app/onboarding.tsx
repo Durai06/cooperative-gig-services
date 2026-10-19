@@ -5,6 +5,7 @@ import {
   mobileStyles as s,
 } from "@/components/common/MobileScreen";
 import { Colors } from "@/constants";
+import { useAuth } from "@/contexts/AuthContext";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, Text, View } from "react-native";
@@ -24,12 +25,19 @@ const slides = [
 ];
 export default function Onboarding() {
   const [page, setPage] = useState(0);
+  const { completeOnboarding } = useAuth();
+
+  const handleFinish = async () => {
+    await completeOnboarding();
+    router.replace("/roles");
+  };
+
   return (
     <MobileScreen
       right={
         <Pressable
           accessibilityRole="button"
-          onPress={() => router.replace("/roles")}
+          onPress={handleFinish}
           style={{ padding: 12 }}
         >
           <Text style={s.muted}>Skip</Text>
@@ -53,9 +61,7 @@ export default function Onboarding() {
       </View>
       <Button
         label={page === 2 ? "Get Started" : "Continue"}
-        onPress={() =>
-          page === 2 ? router.replace("/roles") : setPage(page + 1)
-        }
+        onPress={() => (page === 2 ? handleFinish() : setPage(page + 1))}
         fullWidth
       />
       <View

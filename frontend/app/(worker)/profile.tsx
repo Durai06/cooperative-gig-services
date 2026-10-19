@@ -19,7 +19,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { workerService } from '@/services/api/bookingService';
 import type { Worker } from '@/types';
 import { Card, Avatar, Badge, StarRating, Divider, LoadingSpinner } from '@/components/common/UIKit';
-import { RoleSwitcherCard } from '@/components/common/RoleSwitcher';
+
 
 export default function WorkerProfileScreen() {
   const router = useRouter();
@@ -173,8 +173,7 @@ export default function WorkerProfileScreen() {
           </View>
         </Card>
 
-        {/* Role Switcher */}
-        <RoleSwitcherCard />
+
 
         {/* Sign Out */}
         <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout} activeOpacity={0.8}>

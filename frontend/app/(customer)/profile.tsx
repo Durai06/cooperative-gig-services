@@ -15,7 +15,7 @@ import {
 import { Colors, Spacing, Typography, Radius, Shadows } from '@/constants';
 import { useAuth } from '@/contexts/AuthContext';
 import { Avatar, Card, Divider } from '@/components/common/UIKit';
-import { RoleSwitcherCard } from '@/components/common/RoleSwitcher';
+
 
 interface MenuItemProps {
   icon: React.ReactNode;
@@ -94,8 +94,7 @@ export default function CustomerProfileScreen() {
           </View>
         </Card>
 
-        {/* Role Switcher */}
-        <RoleSwitcherCard />
+
 
         {/* Menu */}
         <Card style={styles.menuCard}>

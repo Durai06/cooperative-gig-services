@@ -45,15 +45,16 @@
     "@babel/core": "^7.25.2",
     "@types/react": "~19.0.10",
     "babel-plugin-module-resolver": "^5.0.2",
+    "cross-env": "^10.1.0",
     "eslint": "^9.39.5",
     "eslint-config-expo": "~9.2.0",
     "typescript": "~5.8.3"
   },
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
+    "start": "cross-env NODE_OPTIONS=--max-old-space-size=4096 expo start",
+    "android": "cross-env NODE_OPTIONS=--max-old-space-size=4096 expo start --android",
+    "ios": "cross-env NODE_OPTIONS=--max-old-space-size=4096 expo start --ios",
+    "web": "cross-env NODE_OPTIONS=--max-old-space-size=4096 expo start --web",
     "ts-check": "tsc --noEmit",
     "lint": "expo lint",
     "test": "node --test tests/*.test.cjs"

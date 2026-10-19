@@ -23,6 +23,7 @@ import React, {
   useContext,
   useEffect,
   useReducer,
+  useState,
 } from "react";
 import { Platform } from "react-native";
 
@@ -30,6 +31,7 @@ import { Platform } from "react-native";
 
 const TOKEN_KEY = "coopconnect_token";
 const USER_KEY = "coopconnect_user";
+const ONBOARDED_KEY = "coopconnect_onboarded";
 
 const storage = {
   async getItem(key: string): Promise<string | null> {
@@ -113,6 +115,8 @@ export const DEMO_CREDENTIALS: Record<UserRole, LoginPayload> = {
 // ─── Context ─────────────────────────────────────────────────
 
 interface AuthContextValue extends AuthState {
+  hasCompletedOnboarding: boolean;
+  completeOnboarding: () => Promise<void>;
   login: (payload: LoginPayload) => Promise<User>;
   registerCustomer: (payload: RegisterCustomerPayload) => Promise<User>;
   registerWorker: (payload: RegisterWorkerPayload) => Promise<User>;
@@ -132,6 +136,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     isAuthenticated: false,
     isLoading: true,
   });
+  const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState(false);
 
   // Restore session on mount (backend-only: no demo hydration)
   useEffect(() => {
@@ -139,9 +144,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         const token = await storage.getItem(TOKEN_KEY);
         const userStr = await storage.getItem(USER_KEY);
+        const onboarded = await storage.getItem(ONBOARDED_KEY);
+
+        if (onboarded === "true") {
+          setHasCompletedOnboarding(true);
+        }
+
         if (token && userStr) {
           setSessionToken(token);
           setSessionUser(JSON.parse(userStr));
+          setHasCompletedOnboarding(true);
           dispatch({
             type: "LOGIN_SUCCESS",
             payload: { user: JSON.parse(userStr), token },
@@ -155,12 +167,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     })();
   }, []);
 
+  const completeOnboarding = useCallback(async () => {
+    await storage.setItem(ONBOARDED_KEY, "true");
+    setHasCompletedOnboarding(true);
+  }, []);
+
   const login = useCallback(async (payload: LoginPayload) => {
     dispatch({ type: "SET_LOADING", payload: true });
     try {
       const { user, token } = await authService.login(payload);
       await storage.setItem(TOKEN_KEY, token);
       await storage.setItem(USER_KEY, JSON.stringify(user));
+      await storage.setItem(ONBOARDED_KEY, "true");
+      setHasCompletedOnboarding(true);
       setSessionToken(token);
       setSessionUser(user);
       dispatch({ type: "LOGIN_SUCCESS", payload: { user, token } });
@@ -195,6 +214,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const { user, token } = await authService.registerCustomer(payload);
         await storage.setItem(TOKEN_KEY, token);
         await storage.setItem(USER_KEY, JSON.stringify(user));
+        await storage.setItem(ONBOARDED_KEY, "true");
+        setHasCompletedOnboarding(true);
         setSessionToken(token);
         setSessionUser(user);
         dispatch({ type: "LOGIN_SUCCESS", payload: { user, token } });
@@ -213,6 +234,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const { user, token } = await authService.registerWorker(payload);
       await storage.setItem(TOKEN_KEY, token);
       await storage.setItem(USER_KEY, JSON.stringify(user));
+      await storage.setItem(ONBOARDED_KEY, "true");
+      setHasCompletedOnboarding(true);
       setSessionToken(token);
       setSessionUser(user);
       dispatch({ type: "LOGIN_SUCCESS", payload: { user, token } });
@@ -241,6 +264,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     <AuthContext.Provider
       value={{
         ...state,
+        hasCompletedOnboarding,
+        completeOnboarding,
         login,
         registerCustomer,
         registerWorker,

@@ -1,14 +1,19 @@
 import { Brand, CommunityIllustration } from "@/components/common/Brand";
 import { Button } from "@/components/common/Button";
+import { PageFrame } from "@/components/common/ResponsiveLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { router } from "expo-router";
 import React, { useEffect } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { PageFrame } from "@/components/common/ResponsiveLayout";
+
 export default function Splash() {
-  const { isLoading, isAuthenticated, user } = useAuth();
+  const { isLoading, isAuthenticated, user, hasCompletedOnboarding } = useAuth();
+
   useEffect(() => {
-    if (!isLoading && isAuthenticated && user)
+    if (isLoading) return;
+
+    // 1. If currently signed in, go straight to active dashboard (skip intro)
+    if (isAuthenticated && user) {
       router.replace(
         user.role === "admin"
           ? "/(admin)"
@@ -16,7 +21,16 @@ export default function Splash() {
             ? "/(worker)"
             : "/(customer)",
       );
-  }, [isLoading, isAuthenticated, user]);
+      return;
+    }
+
+    // 2. Once registered / onboarded, no need for intro pages: go straight to sign in / register
+    if (hasCompletedOnboarding) {
+      router.replace("/roles");
+      return;
+    }
+  }, [isLoading, isAuthenticated, user, hasCompletedOnboarding]);
+
   return (
     <PageFrame style={s.screen}>
       <ScrollView
@@ -31,7 +45,7 @@ export default function Splash() {
           </Text>
         </View>
         <CommunityIllustration />
-        <View style={{ gap: 12, paddingBottom: 16 }}>
+        <View style={{ gap: 14, paddingBottom: 16 }}>
           <Button
             label="Welcome to CoopConnect"
             loading={isLoading}
@@ -39,9 +53,9 @@ export default function Splash() {
             fullWidth
           />
           <Button
-            label="Sign In to Your Account"
+            label="Sign In or Register"
             variant="outline"
-            onPress={() => router.push("/(auth)/login")}
+            onPress={() => router.push("/roles")}
             fullWidth
             style={{ borderColor: "#BDD8F4" }}
             textStyle={{ color: "#ffffff" }}
@@ -54,6 +68,7 @@ export default function Splash() {
     </PageFrame>
   );
 }
+
 const s = StyleSheet.create({
   screen: { flex: 1, backgroundColor: "#073B76", padding: 24 },
   eyebrow: {

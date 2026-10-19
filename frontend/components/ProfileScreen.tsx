@@ -9,7 +9,7 @@ import { WorkerPortrait } from "./common/Brand";
 import { Button } from "./common/Button";
 import { Input } from "./common/Input";
 import { MobileScreen, mobileStyles as s } from "./common/MobileScreen";
-import { RoleSwitcherCard } from "./common/RoleSwitcher";
+
 import { Badge } from "./common/UIKit";
 export function ProfileScreen() {
   const { user, updateUser, logout } = useAuth();
@@ -153,14 +153,7 @@ export function ProfileScreen() {
           />
         </>
       )}
-      <View style={[s.card, { marginTop: 20 }]}>
-        <Text style={s.label}>Demo Accounts</Text>
-        <Text style={s.muted}>
-          Switch roles to explore this offline demo. This is not production
-          authentication.
-        </Text>
-        <RoleSwitcherCard />
-      </View>
+
       <Button
         label="Sign Out"
         variant="danger"

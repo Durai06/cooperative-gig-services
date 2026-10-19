@@ -6,7 +6,7 @@ import { Alert } from "@/components/common/Feedback";
 
 import { Button } from "@/components/common/Button";
 import { Input } from "@/components/common/Input";
-import { Colors, Radius, Spacing, Typography } from "@/constants";
+import { Colors, Radius, Shadows, Spacing, Typography } from "@/constants";
 import { useAuth } from "@/contexts/AuthContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -137,6 +137,30 @@ export default function LoginScreen() {
             <Brand />
           </View>
 
+          {/* Auth mode toggle */}
+          <View style={styles.authModeToggle}>
+            <View style={[styles.authModeBtn, styles.authModeActive]}>
+              <Text style={styles.authModeActiveText}>Log In</Text>
+            </View>
+            <TouchableOpacity
+              style={styles.authModeBtn}
+              onPress={() => {
+                if (currentRole === "worker") {
+                  router.push("/(auth)/register-worker");
+                } else if (currentRole === "customer") {
+                  router.push("/(auth)/register-customer");
+                } else {
+                  Alert.alert(
+                    "Admin Registration",
+                    "Cooperative Admin accounts are provisioned directly by the Cooperative Society management.",
+                  );
+                }
+              }}
+            >
+              <Text style={styles.authModeInactiveText}>Create Account / Register</Text>
+            </TouchableOpacity>
+          </View>
+
           {/* Role selector tabs */}
           <View style={styles.roleTabContainer}>
             {(["customer", "worker", "admin"] as const).map((r) => {
@@ -171,9 +195,9 @@ export default function LoginScreen() {
             })}
           </View>
 
-          <Text style={styles.title}>Welcome back</Text>
+          <Text style={styles.title}>{meta.label} Sign In</Text>
           <Text style={styles.subtitle}>
-            Sign in to access your {meta.label.toLowerCase()} account
+            Enter your credentials or use the demo autofill below
           </Text>
 
           <View style={styles.backendNotice}>
@@ -280,6 +304,34 @@ const styles = StyleSheet.create({
   kav: { flex: 1 },
   scroll: { padding: Spacing.base, paddingBottom: Spacing.xxxl },
   backBtn: { marginBottom: Spacing.xl, padding: 4, alignSelf: "flex-start" },
+  authModeToggle: {
+    flexDirection: "row",
+    backgroundColor: "#F0F4F8",
+    borderRadius: Radius.lg,
+    padding: 4,
+    marginBottom: Spacing.base,
+  },
+  authModeBtn: {
+    flex: 1,
+    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: Radius.md,
+  },
+  authModeActive: {
+    backgroundColor: "#FFFFFF",
+    ...Shadows.sm,
+  },
+  authModeActiveText: {
+    fontSize: Typography.fontSize.sm,
+    fontWeight: Typography.fontWeight.bold,
+    color: Colors.textPrimary,
+  },
+  authModeInactiveText: {
+    fontSize: Typography.fontSize.sm,
+    fontWeight: Typography.fontWeight.medium,
+    color: Colors.textSecondary,
+  },
   roleTabContainer: {
     flexDirection: "row",
     gap: 8,
