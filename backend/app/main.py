@@ -9,7 +9,10 @@ from app.models import (
     Booking, Rating, Complaint, Notification, CooperativeSettings
 )
 from app.database import Base
-from app.routers import auth, services, workers, bookings, ratings, complaints, notifications, admin, matching
+from app.routers import (
+    auth, services, workers, bookings, ratings,
+    complaints, notifications, admin, matching, cooperatives
+)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -48,6 +51,7 @@ app.include_router(complaints.router,    prefix=API_PREFIX)
 app.include_router(notifications.router, prefix=API_PREFIX)
 app.include_router(admin.router,         prefix=API_PREFIX)
 app.include_router(matching.router,      prefix=API_PREFIX)
+app.include_router(cooperatives.router,  prefix=API_PREFIX)
 
 @app.get("/", tags=["Health"])
 def root():

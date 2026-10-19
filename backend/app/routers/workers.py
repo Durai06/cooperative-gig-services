@@ -4,6 +4,7 @@ from typing import Optional, List
 from app.database import get_db
 from app.models.worker import Worker
 from app.models.user import User
+from app.models.notification import Notification
 from app.schemas.worker import WorkerResponse, WorkerUpdateAvailability, WorkerVerificationUpdate
 from app.core.dependencies import get_current_user, require_role
 
@@ -21,11 +22,20 @@ def format_worker_dict(worker: Worker) -> dict:
             "avatarUrl": worker.user.avatar_url,
             "address": worker.user.address,
         }
+    coop_dict = None
+    if worker.cooperative:
+        coop_dict = {
+            "id": worker.cooperative.id,
+            "name": worker.cooperative.name,
+            "location": worker.cooperative.location,
+            "contact": worker.cooperative.contact,
+        }
     return {
         "id": worker.id,
         "userId": worker.user_id,
         "user": user_dict,
         "cooperativeId": worker.cooperative_id,
+        "cooperative": coop_dict,
         "experience": worker.experience,
         "rating": worker.rating,
         "totalRatings": worker.total_ratings,
@@ -62,6 +72,13 @@ def get_workers(
         results = [w for w in results if any(s.get("serviceId") == service_id or s.get("serviceName") == service_id for s in w["skills"])]
     return results
 
+@router.get("/by-user/{user_id}")
+def get_worker_by_user(user_id: str, db: Session = Depends(get_db)):
+    worker = db.query(Worker).filter(Worker.user_id == user_id).first()
+    if not worker:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Worker profile not found")
+    return format_worker_dict(worker)
+
 @router.get("/{worker_id}")
 def get_worker(worker_id: str, db: Session = Depends(get_db)):
     worker = db.query(Worker).filter(Worker.id == worker_id).first()
@@ -97,6 +114,24 @@ def update_availability(
     db.refresh(worker)
     return format_worker_dict(worker)
 
+@router.patch("/{worker_id}/toggle-availability")
+def toggle_availability(
+    worker_id: str,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    worker = db.query(Worker).filter(Worker.id == worker_id).first()
+    if not worker:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Worker not found")
+    
+    if current_user.role != "admin" and worker.user_id != current_user.id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Cannot change another worker's availability")
+    
+    worker.availability = not worker.availability
+    db.commit()
+    db.refresh(worker)
+    return format_worker_dict(worker)
+
 @router.patch("/{worker_id}/verify")
 def verify_worker(
     worker_id: str,
@@ -109,6 +144,15 @@ def verify_worker(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Worker not found")
     
     worker.verification_status = payload.status
+
+    # Notify worker of verification update
+    db.add(Notification(
+        user_id=worker.user_id,
+        type="verification_update",
+        title="Verification Updated",
+        body=f"Your profile verification status is now {payload.status}."
+    ))
+
     db.commit()
     db.refresh(worker)
     return format_worker_dict(worker)

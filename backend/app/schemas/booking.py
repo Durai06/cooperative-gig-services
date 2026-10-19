@@ -14,8 +14,17 @@ class CreateBookingPayload(BaseModel):
     emergency: Optional[bool] = False
     notes: Optional[str] = None
 
+class AssignWorkerPayload(BaseModel):
+    workerId: str
+
+class CancelBookingPayload(BaseModel):
+    reason: Optional[str] = None
+
+class RejectBookingPayload(BaseModel):
+    reason: Optional[str] = None
+
 class UpdateBookingStatusPayload(BaseModel):
-    status: str # accepted, in_progress, completed, cancelled, rejected
+    status: str  # accepted, in_progress, completed, cancelled, rejected
     workerId: Optional[str] = None
     cancellationReason: Optional[str] = None
 

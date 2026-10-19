@@ -1,0 +1,3 @@
+"""
+CoopConnect Backend Application Package
+"""

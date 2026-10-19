@@ -4,5 +4,11 @@ __pycache__/
 *.pyo
 *.egg-info/
 .env
+*.db
+*.db-journal
 coopconnect.db
 dist/
+build/
+.pytest_cache/
+.vscode/
+.idea/

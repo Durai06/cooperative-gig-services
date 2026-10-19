@@ -47,14 +47,34 @@ def submit_rating(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    existing = db.query(Rating).filter(Rating.booking_id == payload.bookingId).first()
-    if existing:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Rating already submitted for this booking")
-    
     booking = db.query(Booking).filter(Booking.id == payload.bookingId).first()
     if not booking:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Booking not found")
-    
+
+    if current_user.role == "customer" and booking.customer_id != current_user.id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Only your own bookings can be reviewed.")
+
+    if booking.status != "completed":
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Only completed bookings can be reviewed.")
+
+    if booking.worker_id and booking.worker_id != payload.workerId:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Worker does not match booking assignment.")
+
+    # Validate score range 1..5
+    for field_name, score in [
+        ("overall", payload.overall),
+        ("workQuality", payload.workQuality),
+        ("punctuality", payload.punctuality),
+        ("behaviour", payload.behaviour),
+        ("professionalism", payload.professionalism),
+    ]:
+        if not isinstance(score, (int, float)) or score < 1 or score > 5:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"{field_name} rating must be between 1 and 5.")
+
+    existing = db.query(Rating).filter(Rating.booking_id == payload.bookingId).first()
+    if existing:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Rating already submitted for this booking.")
+
     rating = Rating(
         booking_id=payload.bookingId,
         customer_id=current_user.id,
