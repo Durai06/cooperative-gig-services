@@ -13,7 +13,7 @@ export function RouteGuard({ children }: { children: React.ReactNode }) {
     const isPublic =
       !section || ["onboarding", "roles", "(auth)"].includes(section);
     if (!isPublic && !user) {
-      router.replace("/roles");
+      router.replace("/");
       return;
     }
     if (

@@ -19,10 +19,21 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
+let onUnauthorizedCallback: (() => void) | null = null;
+
+export function setOnUnauthorizedCallback(cb: (() => void) | null) {
+  onUnauthorizedCallback = cb;
+}
+
 // Clean error message extraction with clear backend connection messaging
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
+    if (error.response?.status === 401) {
+      if (onUnauthorizedCallback) {
+        onUnauthorizedCallback();
+      }
+    }
     if (error.response?.data?.detail) {
       const detail = error.response.data.detail;
       const message = typeof detail === "string" ? detail : JSON.stringify(detail);

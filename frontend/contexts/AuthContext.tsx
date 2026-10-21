@@ -6,6 +6,7 @@
 // ============================================================
 
 import { authService } from "@/services/api/authService";
+import { setOnUnauthorizedCallback } from "@/services/api/client";
 import { setSessionUser } from "@/services/session";
 import { setSessionToken } from "@/services/session";
 import type {
@@ -138,34 +139,72 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   });
   const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState(false);
 
-  // Restore session on mount (backend-only: no demo hydration)
+  const logout = useCallback(async () => {
+    await storage.deleteItem(TOKEN_KEY);
+    await storage.deleteItem(USER_KEY);
+    setSessionToken(null);
+    setSessionUser(null);
+    dispatch({ type: "LOGOUT" });
+  }, []);
+
+  // Restore and validate session on mount (backend-only: validates token with backend)
   useEffect(() => {
+    let isCancelled = false;
+
+    // Auto-logout if any API request encounters HTTP 401 Unauthorized
+    setOnUnauthorizedCallback(() => {
+      logout();
+    });
+
     (async () => {
       try {
         const token = await storage.getItem(TOKEN_KEY);
-        const userStr = await storage.getItem(USER_KEY);
         const onboarded = await storage.getItem(ONBOARDED_KEY);
 
         if (onboarded === "true") {
           setHasCompletedOnboarding(true);
         }
 
-        if (token && userStr) {
+        if (token) {
           setSessionToken(token);
-          setSessionUser(JSON.parse(userStr));
-          setHasCompletedOnboarding(true);
-          dispatch({
-            type: "LOGIN_SUCCESS",
-            payload: { user: JSON.parse(userStr), token },
-          });
+          try {
+            // Verify token against backend /auth/me
+            const verifiedUser = await authService.getMe();
+            if (!isCancelled) {
+              setSessionUser(verifiedUser);
+              await storage.setItem(USER_KEY, JSON.stringify(verifiedUser));
+              dispatch({
+                type: "LOGIN_SUCCESS",
+                payload: { user: verifiedUser, token },
+              });
+            }
+          } catch {
+            // Token is invalid, expired, or backend was reset: wipe invalid credentials completely
+            if (!isCancelled) {
+              await storage.deleteItem(TOKEN_KEY);
+              await storage.deleteItem(USER_KEY);
+              setSessionToken(null);
+              setSessionUser(null);
+              dispatch({ type: "LOGOUT" });
+            }
+          }
         } else {
-          dispatch({ type: "SET_LOADING", payload: false });
+          if (!isCancelled) {
+            dispatch({ type: "SET_LOADING", payload: false });
+          }
         }
       } catch {
-        dispatch({ type: "SET_LOADING", payload: false });
+        if (!isCancelled) {
+          dispatch({ type: "SET_LOADING", payload: false });
+        }
       }
     })();
-  }, []);
+
+    return () => {
+      isCancelled = true;
+      setOnUnauthorizedCallback(null);
+    };
+  }, [logout]);
 
   const completeOnboarding = useCallback(async () => {
     await storage.setItem(ONBOARDED_KEY, "true");
@@ -246,13 +285,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const logout = useCallback(async () => {
-    await storage.deleteItem(TOKEN_KEY);
-    await storage.deleteItem(USER_KEY);
-    setSessionToken(null);
-    setSessionUser(null);
-    dispatch({ type: "LOGOUT" });
-  }, []);
 
   const updateUser = useCallback((user: User) => {
     setSessionUser(user);

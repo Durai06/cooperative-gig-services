@@ -139,7 +139,7 @@ export function AdaptiveNavigation(props: BottomTabBarProps) {
         accessibilityLabel="Sign Out"
         onPress={async () => {
           await logout();
-          router.replace("/roles");
+          router.replace("/");
         }}
         style={{
           padding: 18,

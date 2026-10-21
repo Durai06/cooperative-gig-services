@@ -7,12 +7,12 @@ import React, { useEffect } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function Splash() {
-  const { isLoading, isAuthenticated, user, hasCompletedOnboarding } = useAuth();
+  const { isLoading, isAuthenticated, user } = useAuth();
 
   useEffect(() => {
     if (isLoading) return;
 
-    // 1. If currently signed in, go straight to active dashboard (skip intro)
+    // If currently signed in with valid credentials, go straight to active dashboard
     if (isAuthenticated && user) {
       router.replace(
         user.role === "admin"
@@ -23,13 +23,8 @@ export default function Splash() {
       );
       return;
     }
-
-    // 2. Once registered / onboarded, no need for intro pages: go straight to sign in / register
-    if (hasCompletedOnboarding) {
-      router.replace("/roles");
-      return;
-    }
-  }, [isLoading, isAuthenticated, user, hasCompletedOnboarding]);
+    // If not authenticated or signed out, stay on intro screen
+  }, [isLoading, isAuthenticated, user]);
 
   return (
     <PageFrame style={s.screen}>
