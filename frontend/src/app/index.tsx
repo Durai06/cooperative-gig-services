@@ -42,7 +42,7 @@ export default function Splash() {
         <CommunityIllustration />
         <View style={{ gap: 14, paddingBottom: 16 }}>
           <Button
-            label="Welcome to CoopConnect"
+            label="Welcome to Sevai One"
             loading={isLoading}
             onPress={() => router.push("/onboarding")}
             fullWidth

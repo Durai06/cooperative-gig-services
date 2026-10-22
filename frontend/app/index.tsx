@@ -39,7 +39,7 @@ export default function IndexScreen() {
     }
   }, [isAuthenticated, isLoading, user, router]);
 
-  if (isLoading) return <LoadingSpinner label="Loading CoopConnect…" />;
+  if (isLoading) return <LoadingSpinner label="Loading Sevai One…" />;
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -51,7 +51,7 @@ export default function IndexScreen() {
               <Users size={36} color={Colors.textInverse} />
             </View>
           </View>
-          <Text style={styles.appName}>CoopConnect</Text>
+          <Text style={styles.appName}>Sevai One</Text>
           <Text style={styles.tagline}>
             Connecting skilled workers with customers through Labour Cooperative Societies
           </Text>

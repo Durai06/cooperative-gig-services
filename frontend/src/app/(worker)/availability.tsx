@@ -3,7 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { workerService } from "@/services/api/bookingService";
 import React, { useEffect, useState } from "react";
 // ============================================================
-// CoopConnect – Worker Availability & Schedule Screen
+// Sevai One – Worker Availability & Schedule Screen
 // Weekly time slot management and service radius configuration.
 // ============================================================
 

@@ -1,6 +1,6 @@
 import { RouteGuard } from "@/components/common/RouteGuard";
 // ============================================================
-// CoopConnect – Root Layout (_layout.tsx)
+// Sevai One – Root Layout (_layout.tsx)
 // Handles font loading, auth session restore, and routing.
 // ============================================================
 

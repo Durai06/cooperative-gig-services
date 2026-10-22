@@ -43,7 +43,7 @@ export default function CustomerProfileScreen() {
     const doLogout = async () => {
       try {
         await logout();
-        router.replace('/');
+        router.replace('/roles');
       } catch (err) {
         console.error('Logout error:', err);
       }
@@ -131,7 +131,7 @@ export default function CustomerProfileScreen() {
 
         {/* App Info */}
         <View style={styles.appInfo}>
-          <Text style={styles.appName}>CoopConnect</Text>
+          <Text style={styles.appName}>Sevai One</Text>
           <Text style={styles.appVersion}>v1.0.0 · Mock Mode</Text>
         </View>
 

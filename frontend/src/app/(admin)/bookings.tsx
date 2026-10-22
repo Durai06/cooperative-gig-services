@@ -4,7 +4,7 @@ import {
 } from "@/components/common/ResponsiveLayout";
 import { useFocusEffect, useRouter } from "expo-router";
 // ============================================================
-// CoopConnect – Administrator Booking Oversight & Dispatch
+// Sevai One – Administrator Booking Oversight & Dispatch
 // Monitor all society bookings, manual worker assignment & emergency queue.
 // ============================================================
 

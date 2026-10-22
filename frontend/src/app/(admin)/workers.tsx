@@ -5,7 +5,7 @@ import {
 import { Alert } from "@/components/common/Feedback";
 import { useFocusEffect, useRouter } from "expo-router";
 // ============================================================
-// CoopConnect – Worker Verification & Roster Management
+// Sevai One – Worker Verification & Roster Management
 // Review trade credentials, approve memberships, and manage workers.
 // ============================================================
 

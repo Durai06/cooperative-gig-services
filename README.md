@@ -1,6 +1,6 @@
-# CoopConnect – Cooperative Gig Services Platform
+# Sevai One – Cooperative Gig Services Platform
 
-CoopConnect is a full-stack platform connecting customers with skilled cooperative workers (electricians, plumbers, carpenters, cleaners, etc.).
+Sevai One is a full-stack platform connecting customers with skilled cooperative workers (electricians, plumbers, carpenters, cleaners, etc.).
 
 The project is organized into two completely decoupled, standalone packages:
 

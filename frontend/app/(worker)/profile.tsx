@@ -46,7 +46,7 @@ export default function WorkerProfileScreen() {
     const doLogout = async () => {
       try {
         await logout();
-        router.replace('/');
+        router.replace('/roles');
       } catch (err) {
         console.error('Logout error:', err);
       }
@@ -181,7 +181,7 @@ export default function WorkerProfileScreen() {
           <Text style={styles.logoutText}>Sign Out from Cooperative</Text>
         </TouchableOpacity>
 
-        <Text style={styles.versionText}>CoopConnect Mobile v1.0.0 (Expo SDK 53)</Text>
+        <Text style={styles.versionText}>Sevai One Mobile v1.0.0 (Expo SDK 53)</Text>
       </ScrollView>
     </SafeAreaView>
   );

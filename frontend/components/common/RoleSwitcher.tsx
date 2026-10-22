@@ -113,7 +113,7 @@ export function RoleSwitcherModal({
       try {
         await logout();
         onClose();
-        router.replace("/");
+        router.replace("/roles");
       } catch (err) {
         console.error("Logout error:", err);
       }
@@ -152,7 +152,7 @@ export function RoleSwitcherModal({
             <View>
               <Text style={styles.modalTitle}>Switch Account / Role</Text>
               <Text style={styles.modalSubtitle}>
-                Test all 3 roles in CoopConnect
+                Test all 3 roles in Sevai One
               </Text>
             </View>
             <TouchableOpacity

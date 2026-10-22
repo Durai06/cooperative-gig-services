@@ -1,7 +1,7 @@
 import { Alert } from "@/components/common/Feedback";
 import { useFocusEffect, useLocalSearchParams, useRouter } from "expo-router";
 // ============================================================
-// CoopConnect – Booking Detail Screen
+// Sevai One – Booking Detail Screen
 // ============================================================
 
 import { Button } from "@/components/common/Button";

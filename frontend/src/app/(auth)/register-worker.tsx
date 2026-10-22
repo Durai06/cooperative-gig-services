@@ -1,6 +1,6 @@
 import { Alert } from "@/components/common/Feedback";
 // ============================================================
-// CoopConnect – Worker Registration Screen
+// Sevai One – Worker Registration Screen
 // ============================================================
 
 import { Button } from "@/components/common/Button";

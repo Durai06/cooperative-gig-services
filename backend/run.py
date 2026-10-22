@@ -1,7 +1,7 @@
 """
-CoopConnect Standalone Server Runner
-====================================
-Runs the CoopConnect FastAPI backend server using uvicorn.
+Sevai One Standalone Server Runner
+==================================
+Runs the Sevai One FastAPI backend server using uvicorn.
 
 Usage:
     python run.py
@@ -19,7 +19,7 @@ import uvicorn
 from app.config import settings
 
 def main():
-    parser = argparse.ArgumentParser(description="CoopConnect FastAPI Backend Server")
+    parser = argparse.ArgumentParser(description="Sevai One FastAPI Backend Server")
     parser.add_argument("--host", type=str, default=settings.HOST, help=f"Host interface (default: {settings.HOST})")
     parser.add_argument("--port", type=int, default=settings.PORT, help=f"Port number (default: {settings.PORT})")
     parser.add_argument("--reload", action="store_true", default=settings.DEBUG, help="Enable auto-reload on code changes")

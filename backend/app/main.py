@@ -24,7 +24,7 @@ app = FastAPI(
     title=settings.PROJECT_NAME,
     version=settings.VERSION,
     description=(
-        "CoopConnect Backend REST API — provides authentication, service catalogue, "
+        "Sevai One Backend REST API — provides authentication, service catalogue, "
         "worker management, booking lifecycle, matching engine, ratings, complaints, "
         "notifications and admin analytics."
     ),

@@ -46,7 +46,7 @@ export function Brand({
           color: light ? "#fff" : Colors.textPrimary,
         }}
       >
-        CoopConnect
+        Sevai One
       </Text>
     </View>
   );

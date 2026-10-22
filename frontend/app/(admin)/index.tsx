@@ -64,7 +64,7 @@ export default function AdminDashboardScreen() {
     const doLogout = async () => {
       try {
         await logout();
-        router.replace('/');
+        router.replace('/roles');
       } catch (err) {
         console.error('Logout error:', err);
       }

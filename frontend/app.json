@@ -1,23 +1,23 @@
 {
   "expo": {
-    "name": "CoopConnect",
-    "slug": "coopconnect",
+    "name": "Sevai One",
+    "slug": "sevai-one",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "coopconnect",
+    "scheme": "sevaione",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.coopconnect.app"
+      "bundleIdentifier": "com.sevaione.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundColor": "#163A5F"
       },
-      "package": "com.coopconnect.app",
+      "package": "com.sevaione.app",
       "softwareKeyboardLayoutMode": "resize",
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",
@@ -42,13 +42,13 @@
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "CoopConnect uses location to find nearby workers."
+          "locationAlwaysAndWhenInUsePermission": "Sevai One uses location to find nearby workers."
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "CoopConnect accesses your photos to update your profile picture."
+          "photosPermission": "Sevai One accesses your photos to update your profile picture."
         }
       ],
       [

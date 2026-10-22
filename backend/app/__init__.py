@@ -1,3 +1,3 @@
 """
-CoopConnect Backend Application Package
+Sevai One Backend Application Package
 """

@@ -12,7 +12,7 @@ import { Pressable, Text, View } from "react-native";
 const slides = [
   [
     "Find Trusted Skilled Workers from Your Local Cooperative",
-    "CoopConnect connects households and communities with verified skilled workers from Labour Cooperative Societies.",
+    "Sevai One connects households and communities with verified skilled workers from Labour Cooperative Societies.",
   ],
   [
     "Reliable Help. A Few Taps Away.",

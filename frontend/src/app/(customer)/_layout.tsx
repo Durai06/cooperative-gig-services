@@ -2,7 +2,7 @@ import { AdaptiveNavigation } from "@/components/common/AdaptiveNavigation";
 import { useResponsiveLayout } from "@/components/common/ResponsiveLayout";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 // ============================================================
-// CoopConnect – Customer Tab Layout
+// Sevai One – Customer Tab Layout
 // ============================================================
 
 import { LoadingSpinner } from "@/components/common/UIKit";
@@ -18,8 +18,8 @@ export default function CustomerLayout() {
   const { user, isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) return <LoadingSpinner />;
-  if (!isAuthenticated) return <Redirect href="/" />;
-  if (user?.role !== "customer") return <Redirect href="/" />;
+  if (!isAuthenticated) return <Redirect href="/roles" />;
+  if (user?.role !== "customer") return <Redirect href="/roles" />;
 
   return (
     <Tabs

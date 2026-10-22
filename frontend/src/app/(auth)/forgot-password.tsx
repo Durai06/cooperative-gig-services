@@ -1,6 +1,6 @@
 import { Alert } from "@/components/common/Feedback";
 // ============================================================
-// CoopConnect – Forgot Password Screen
+// Sevai One – Forgot Password Screen
 // ============================================================
 
 import { Button } from "@/components/common/Button";

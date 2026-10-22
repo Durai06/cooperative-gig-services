@@ -1,7 +1,7 @@
 import { Alert } from "@/components/common/Feedback";
 import { useFocusEffect, useLocalSearchParams, useRouter } from "expo-router";
 // ============================================================
-// CoopConnect – Worker Profile Detail Screen
+// Sevai One – Worker Profile Detail Screen
 // Detailed view of a worker, cooperative affiliation & reviews.
 // ============================================================
 

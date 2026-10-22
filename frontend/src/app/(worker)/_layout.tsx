@@ -2,7 +2,7 @@ import { AdaptiveNavigation } from "@/components/common/AdaptiveNavigation";
 import { useResponsiveLayout } from "@/components/common/ResponsiveLayout";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 // ============================================================
-// CoopConnect – Worker Tab Layout
+// Sevai One – Worker Tab Layout
 // ============================================================
 
 import { LoadingSpinner } from "@/components/common/UIKit";
@@ -23,8 +23,8 @@ export default function WorkerLayout() {
   const { user, isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) return <LoadingSpinner />;
-  if (!isAuthenticated) return <Redirect href="/" />;
-  if (user?.role !== "worker") return <Redirect href="/" />;
+  if (!isAuthenticated) return <Redirect href="/roles" />;
+  if (user?.role !== "worker") return <Redirect href="/roles" />;
 
   return (
     <Tabs

@@ -1,5 +1,5 @@
 """
-Comprehensive Smoke Test Suite for CoopConnect Backend
+Comprehensive Smoke Test Suite for Sevai One Backend
 Tests all 10 router modules:
 - Health
 - Auth (login, register, forgot-password, profile, me)
@@ -26,7 +26,7 @@ client = TestClient(app)
 
 def run_tests():
     print("=" * 60)
-    print("  Running CoopConnect API Test Suite")
+    print("  Running Sevai One API Test Suite")
     print("=" * 60)
     
     passed = 0

@@ -82,7 +82,7 @@ export default function Settings() {
         variant="danger"
         onPress={async () => {
           await logout();
-          router.replace("/");
+          router.replace("/roles");
         }}
         fullWidth
       />

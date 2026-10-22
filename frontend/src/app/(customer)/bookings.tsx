@@ -3,7 +3,7 @@ import {
   PageFrame,
 } from "@/components/common/ResponsiveLayout";
 // ============================================================
-// CoopConnect – Customer Bookings Screen
+// Sevai One – Customer Bookings Screen
 // ============================================================
 
 import { BookingCard } from "@/components/cards/BookingCard";

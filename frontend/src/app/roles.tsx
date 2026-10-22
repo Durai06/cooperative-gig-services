@@ -50,7 +50,7 @@ export default function Roles() {
     <MobileScreen back>
       <View style={{ alignItems: "center", marginVertical: 20 }}>
         <Brand />
-        <Text style={[s.heading, { marginTop: 24 }]}>Join CoopConnect</Text>
+        <Text style={[s.heading, { marginTop: 24 }]}>Join Sevai One</Text>
         <Text style={s.muted}>Choose whether to Log In or Register</Text>
       </View>
 

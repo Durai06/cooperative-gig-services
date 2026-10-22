@@ -1,6 +1,6 @@
-# CoopConnect Standalone Backend Server
+# Sevai One Standalone Backend Server
 
-Production-grade, standalone FastAPI + SQLAlchemy backend for the **CoopConnect** cooperative gig services platform.
+Production-grade, standalone FastAPI + SQLAlchemy backend for the **Sevai One** cooperative gig services platform.
 
 ---
 

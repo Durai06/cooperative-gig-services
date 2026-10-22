@@ -87,7 +87,7 @@ export default function CustomerHome() {
         A little help, close to home.
       </Text>
       <Text style={[m.muted, { marginTop: 6, marginBottom: 18 }]}>
-        Hello, {user?.name.split(" ")[0]}. What can we help with?
+        Hello, {user?.name ? user.name.split(" ")[0] : "there"}. What can we help with?
       </Text>
       <View style={s.search}>
         <Search size={19} color="#34577D" />

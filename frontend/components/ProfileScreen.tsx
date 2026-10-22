@@ -160,7 +160,7 @@ export function ProfileScreen() {
         fullWidth
         onPress={async () => {
           await logout();
-          router.replace("/");
+          router.replace("/roles");
         }}
       />
     </MobileScreen>

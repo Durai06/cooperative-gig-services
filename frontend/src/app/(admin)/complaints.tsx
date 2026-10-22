@@ -18,7 +18,7 @@ import {
 import { Alert } from "@/components/common/Feedback";
 import { useFocusEffect, useRouter } from "expo-router";
 // ============================================================
-// CoopConnect – Administrator Grievance Mediation Center
+// Sevai One – Administrator Grievance Mediation Center
 // Customer complaint investigation, status tracking & resolution.
 // ============================================================
 

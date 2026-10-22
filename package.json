@@ -1,7 +1,7 @@
 {
-  "name": "coopconnect-monorepo",
+  "name": "sevai-one-monorepo",
   "version": "1.0.0",
-  "description": "CoopConnect – Cooperative Gig Services Platform (Frontend & Backend)",
+  "description": "Sevai One – Cooperative Gig Services Platform (Frontend & Backend)",
   "scripts": {
     "start:frontend": "npm start --prefix frontend",
     "start:backend": "cd backend && .\\venv\\Scripts\\python.exe run.py",

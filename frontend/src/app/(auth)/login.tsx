@@ -1,7 +1,7 @@
 import { Brand } from "@/components/common/Brand";
 import { Alert } from "@/components/common/Feedback";
 // ============================================================
-// CoopConnect – Login Screen
+// Sevai One – Login Screen
 // ============================================================
 
 import { Button } from "@/components/common/Button";
@@ -69,7 +69,7 @@ const DEMO = {
 export default function LoginScreen() {
   const router = useRouter();
   const params = useLocalSearchParams<{ role?: string }>();
-  const [currentRole, setCurrentRole] = useState<string>(params.role ?? "customer");
+  const currentRole = params.role ?? "customer";
   const { login } = useAuth();
   const [submitting, setSubmitting] = useState(false);
   const meta = ROLE_META[currentRole as keyof typeof ROLE_META] ?? ROLE_META.customer;
@@ -137,7 +137,7 @@ export default function LoginScreen() {
             <Brand />
           </View>
 
-          {/* Auth mode toggle */}
+          {/* Auth mode toggle - only shows current role */}
           <View style={styles.authModeToggle}>
             <View style={[styles.authModeBtn, styles.authModeActive]}>
               <Text style={styles.authModeActiveText}>Log In</Text>
@@ -157,47 +157,27 @@ export default function LoginScreen() {
                 }
               }}
             >
-              <Text style={styles.authModeInactiveText}>Create Account / Register</Text>
+              <Text style={styles.authModeInactiveText}>
+                {currentRole === "worker"
+                  ? "Register as Worker"
+                  : currentRole === "customer"
+                    ? "Register as Customer"
+                    : "Create Account"}
+              </Text>
             </TouchableOpacity>
           </View>
 
-          {/* Role selector tabs */}
-          <View style={styles.roleTabContainer}>
-            {(["customer", "worker", "admin"] as const).map((r) => {
-              const rMeta = ROLE_META[r];
-              const isSelected = currentRole === r;
-              return (
-                <TouchableOpacity
-                  key={r}
-                  style={[
-                    styles.roleTab,
-                    isSelected && {
-                      borderColor: rMeta.color,
-                      backgroundColor: "#F0F6FF",
-                    },
-                  ]}
-                  onPress={() => setCurrentRole(r)}
-                >
-                  {rMeta.icon}
-                  <Text
-                    style={[
-                      styles.roleTabText,
-                      isSelected && {
-                        color: rMeta.color,
-                        fontWeight: Typography.fontWeight.bold,
-                      },
-                    ]}
-                  >
-                    {rMeta.label}
-                  </Text>
-                </TouchableOpacity>
-              );
-            })}
+          {/* Role badge */}
+          <View style={[styles.roleBadge, { borderColor: meta.color }]}>
+            {meta.icon}
+            <Text style={[styles.roleBadgeText, { color: meta.color }]}>
+              {meta.label} Account
+            </Text>
           </View>
 
           <Text style={styles.title}>{meta.label} Sign In</Text>
           <Text style={styles.subtitle}>
-            Enter your credentials or use the demo autofill below
+            Enter your credentials to access your {meta.label.toLowerCase()} account
           </Text>
 
           <View style={styles.backendNotice}>
@@ -288,7 +268,7 @@ export default function LoginScreen() {
                 }
               >
                 <Text style={[styles.registerLink, { color: meta.color }]}>
-                  Sign Up
+                  Sign Up as {meta.label}
                 </Text>
               </TouchableOpacity>
             </View>
@@ -332,29 +312,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.fontWeight.medium,
     color: Colors.textSecondary,
   },
-  roleTabContainer: {
-    flexDirection: "row",
-    gap: 8,
-    marginBottom: Spacing.lg,
-  },
-  roleTab: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 6,
-    borderWidth: 1.5,
-    borderColor: Colors.border,
-    borderRadius: Radius.md,
-    paddingVertical: 10,
-    paddingHorizontal: 8,
-    backgroundColor: Colors.cardBackground,
-  },
-  roleTabText: {
-    fontSize: Typography.fontSize.sm,
-    fontWeight: Typography.fontWeight.medium,
-    color: Colors.textSecondary,
-  },
+
   backendNotice: {
     backgroundColor: "#EBF3FF",
     borderColor: "#C5DCFA",

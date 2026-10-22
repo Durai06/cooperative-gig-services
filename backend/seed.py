@@ -1,6 +1,6 @@
 """
 Seed script – populates the DB with demo cooperatives, services, users, workers,
-bookings, ratings, complaints and notifications matching the CoopConnect demo.
+bookings, ratings, complaints and notifications matching the Sevai One demo.
 
 Run once after setting up:
     python seed.py
@@ -27,7 +27,7 @@ db = SessionLocal()
 
 def seed():
     print("=" * 60)
-    print("  CoopConnect Database Seeder")
+    print("  Sevai One Database Seeder")
     print("=" * 60)
 
     # 1. Cooperative Settings
@@ -77,7 +77,7 @@ def seed():
     demo_pwd = get_password_hash("password123")
 
     users_data = [
-        {"id": "usr-admin-1",    "name": "Kavya Reddy",   "email": "admin@coopconnect.in",    "phone": "+91 98765 43210", "role": "admin",    "address": "CoopConnect HQ, Bengaluru"},
+        {"id": "usr-admin-1",    "name": "Kavya Reddy",   "email": "admin@coopconnect.in",    "phone": "+91 98765 43210", "role": "admin",    "address": "Sevai One HQ, Bengaluru"},
         {"id": "usr-customer-1", "name": "Arjun Sharma",  "email": "customer@coopconnect.in", "phone": "+91 98765 11111", "role": "customer", "address": "12, MG Road, Bengaluru 560001"},
         {"id": "usr-customer-2", "name": "Deepa Menon",   "email": "deepa@coopconnect.in",    "phone": "+91 98765 77777", "role": "customer", "address": "45, Whitefield Main Road, Bengaluru"},
         {"id": "usr-worker-1",   "name": "Ravi Kumar",    "email": "worker@coopconnect.in",   "phone": "+91 98765 22222", "role": "worker",   "address": "Rajajinagar, Bengaluru"},

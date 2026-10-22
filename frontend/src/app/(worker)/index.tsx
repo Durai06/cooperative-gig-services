@@ -76,7 +76,7 @@ export default function WorkerDashboard() {
       <View style={[s.row, { marginBottom: 20 }]}>
         <WorkerPortrait size={64} />
         <View style={{ flex: 1 }}>
-          <PageHeading>Hello, {user?.name.split(" ")[0]}</PageHeading>
+          <PageHeading>Hello, {user?.name ? user.name.split(" ")[0] : "there"}</PageHeading>
           <Text style={s.muted}>Keep up the good work!</Text>
         </View>
       </View>
