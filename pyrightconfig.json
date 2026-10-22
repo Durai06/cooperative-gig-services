@@ -1,0 +1,16 @@
+{
+  "include": [
+    "backend"
+  ],
+  "exclude": [
+    "backend/venv",
+    "**/node_modules"
+  ],
+  "venvPath": "backend",
+  "venv": "venv",
+  "extraPaths": [
+    "backend",
+    "backend/app",
+    "backend/venv/Lib/site-packages"
+  ]
+}

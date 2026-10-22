@@ -6,6 +6,9 @@
   },
   "python.analysis.extraPaths": [
     "${workspaceFolder}/backend",
-    "${workspaceFolder}/backend/app"
-  ]
+    "${workspaceFolder}/backend/app",
+    "${workspaceFolder}/backend/venv/Lib/site-packages"
+  ],
+  "python.analysis.autoSearchPaths": true,
+  "python.terminal.activateEnvironment": true
 }
