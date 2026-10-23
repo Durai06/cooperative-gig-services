@@ -57,7 +57,7 @@ export function AdaptiveNavigation(props: BottomTabBarProps) {
               textAlign: "center",
             }}
           >
-            Coop{"\n"}Connect
+            Sevai{"\n"}One
           </Text>
         )}
       </View>

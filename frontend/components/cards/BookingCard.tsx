@@ -54,7 +54,7 @@ export function BookingCard({
             {booking.service?.name ?? "Service"}
           </Text>
           <Text style={styles.bookingId} numberOfLines={1}>
-            #{booking.id.slice(-6).toUpperCase()}
+            #{booking.id.slice(-6).toUpperCase()} · Total: ₹{booking.totalAmount ?? (booking.servicePrice ? booking.servicePrice + (booking.bookingCharge ?? 100) : (booking.service?.basePrice ? booking.service.basePrice + 100 : 450))}
           </Text>
         </View>
         <View style={styles.statusRow}>

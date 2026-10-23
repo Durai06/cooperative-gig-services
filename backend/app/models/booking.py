@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Float, Boolean, ForeignKey, DateTime
+from sqlalchemy import Column, String, Float, Integer, Boolean, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
@@ -12,6 +12,16 @@ class Booking(Base):
     worker_id = Column(String, ForeignKey("workers.id"), nullable=True)
     service_id = Column(String, ForeignKey("services.id"), nullable=False)
     
+    # Financial snapshot (mandatory booking charge + service fee)
+    service_fee = Column(Float, nullable=True)                 # Base service price snapshot in INR
+    booking_charge = Column(Float, nullable=True, default=100.0) # Mandatory booking service charge in INR
+    total_amount = Column(Float, nullable=True)               # Total payable (service_fee + booking_charge)
+    service_fee_paise = Column(Integer, nullable=True)         # In integer paise (1 INR = 100 paise)
+    booking_charge_paise = Column(Integer, nullable=True, default=10000) # 10000 paise (₹100)
+    total_amount_paise = Column(Integer, nullable=True)       # Total in integer paise
+    payment_method = Column(String, nullable=True, default="cash") # "cash", "direct_upi"
+    payment_status = Column(String, nullable=True, default="pending") # "pending", "paid", "refunded"
+
     description = Column(String, nullable=False)
     location = Column(String, nullable=False)
     latitude = Column(Float, nullable=True)

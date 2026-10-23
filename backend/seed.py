@@ -238,11 +238,23 @@ def seed():
 
     for b_info in bookings_data:
         if not db.query(Booking).filter(Booking.id == b_info["id"]).first():
+            svc = db.query(Service).filter(Service.id == b_info["service_id"]).first()
+            s_fee = float(svc.base_price) if svc else 300.0
+            b_chg = 100.0
+            tot = s_fee + b_chg
             b = Booking(
                 id=b_info["id"],
                 customer_id=b_info["customer_id"],
                 worker_id=b_info["worker_id"],
                 service_id=b_info["service_id"],
+                service_fee=s_fee,
+                booking_charge=b_chg,
+                total_amount=tot,
+                service_fee_paise=int(round(s_fee * 100)),
+                booking_charge_paise=10000,
+                total_amount_paise=int(round(tot * 100)),
+                payment_method="cash",
+                payment_status="paid" if b_info["status"] == "completed" else "pending",
                 description=b_info["description"],
                 location=b_info["location"],
                 latitude=b_info["latitude"],

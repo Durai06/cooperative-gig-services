@@ -180,15 +180,6 @@ export default function LoginScreen() {
             Enter your credentials to access your {meta.label.toLowerCase()} account
           </Text>
 
-          <View style={styles.backendNotice}>
-            <Text style={styles.backendNoticeText}>
-              Connected to FastAPI backend. Click{" "}
-              <Text style={{ fontWeight: "700", color: Colors.primary }}>
-                Use Demo Account
-              </Text>{" "}
-              below to autofill credentials.
-            </Text>
-          </View>
           {/* Form */}
           <View style={styles.form}>
             <Controller
@@ -243,13 +234,14 @@ export default function LoginScreen() {
               style={styles.submitBtn}
             />
 
-            <Button
-              label="Use Demo Account"
-              variant="outline"
+            {/* Hidden demo autofill helper for testing */}
+            <TouchableOpacity
               onPress={fillDemo}
-              fullWidth
-              size="md"
-            />
+              style={styles.demoLink}
+              accessibilityLabel="Fill demo credentials"
+            >
+              <Text style={styles.demoLinkText}>Demo credentials autofill</Text>
+            </TouchableOpacity>
           </View>
 
           {/* Register link – only for customer & worker */}
@@ -313,18 +305,15 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
   },
 
-  backendNotice: {
-    backgroundColor: "#EBF3FF",
-    borderColor: "#C5DCFA",
-    borderWidth: 1,
-    padding: 12,
-    borderRadius: Radius.md,
-    marginBottom: Spacing.lg,
+  demoLink: {
+    alignSelf: "center",
+    paddingVertical: Spacing.sm,
+    marginTop: Spacing.xs,
   },
-  backendNoticeText: {
+  demoLinkText: {
     fontSize: Typography.fontSize.xs,
-    color: Colors.textSecondary,
-    lineHeight: 18,
+    color: Colors.textMuted,
+    textDecorationLine: "underline",
   },
   roleBadge: {
     flexDirection: "row",

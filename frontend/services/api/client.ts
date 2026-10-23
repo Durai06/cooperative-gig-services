@@ -48,7 +48,7 @@ apiClient.interceptors.response.use(
     ) {
       return Promise.reject(
         new Error(
-          `Cannot connect to backend server at ${API_BASE_URL}. The backend must be running! (Start with: cd backend && python run.py)`
+          "Unable to connect to Sevai One services. Please check your network connection and try again."
         )
       );
     }

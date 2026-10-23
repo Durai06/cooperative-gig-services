@@ -102,6 +102,12 @@ export interface Worker {
   emergencyAvailable?: boolean;
 }
 
+export interface ResetPasswordPayload {
+  email: string;
+  phone: string;
+  newPassword: string;
+}
+
 // ─── Booking ─────────────────────────────────────────────────
 
 export type BookingStatus =
@@ -120,6 +126,14 @@ export interface Booking {
   worker?: Worker;
   serviceId: string;
   service?: Service;
+  servicePrice?: number;
+  bookingCharge?: number;
+  totalAmount?: number;
+  servicePricePaise?: number;
+  bookingChargePaise?: number;
+  totalAmountPaise?: number;
+  paymentMethod?: string;
+  paymentStatus?: "pending" | "paid" | "failed" | "refunded";
   description: string;
   location: string;
   latitude?: number;
@@ -135,6 +149,7 @@ export interface Booking {
 
 export interface CreateBookingPayload {
   serviceId: string;
+  workerId?: string;
   description: string;
   location: string;
   latitude?: number;

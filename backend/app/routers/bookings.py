@@ -34,6 +34,13 @@ def format_booking_dict(b: Booking) -> dict:
             "icon": b.service.icon,
             "category": b.service.category,
         }
+    s_fee = b.service_fee if b.service_fee is not None else (b.service.base_price if b.service else 300.0)
+    b_chg = b.booking_charge if b.booking_charge is not None else 100.0
+    tot = b.total_amount if b.total_amount is not None else (s_fee + b_chg)
+    s_paise = b.service_fee_paise if b.service_fee_paise is not None else int(round(s_fee * 100))
+    b_paise = b.booking_charge_paise if b.booking_charge_paise is not None else int(round(b_chg * 100))
+    t_paise = b.total_amount_paise if b.total_amount_paise is not None else (s_paise + b_paise)
+
     return {
         "id": b.id,
         "customerId": b.customer_id,
@@ -42,6 +49,14 @@ def format_booking_dict(b: Booking) -> dict:
         "worker": format_worker_dict(b.worker) if b.worker else None,
         "serviceId": b.service_id,
         "service": service_dict,
+        "servicePrice": s_fee,
+        "bookingCharge": b_chg,
+        "totalAmount": tot,
+        "servicePricePaise": s_paise,
+        "bookingChargePaise": b_paise,
+        "totalAmountPaise": t_paise,
+        "paymentMethod": b.payment_method or "cash",
+        "paymentStatus": b.payment_status or "pending",
         "description": b.description,
         "location": b.location,
         "latitude": b.latitude,
@@ -115,6 +130,12 @@ def create_booking(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
+    if current_user.role not in ["customer", "admin"]:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only customer accounts can create bookings."
+        )
+
     service = db.query(Service).filter(Service.id == payload.serviceId).first()
     if not service:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Service not found")
@@ -154,10 +175,26 @@ def create_booking(
         booking_status = "worker_assigned"
         assigned_worker.active_jobs += 1
 
+    # Mandatory fixed 100 INR booking service charge (never trust prices supplied by client)
+    s_fee = float(service.base_price)
+    b_charge = 100.0
+    tot = s_fee + b_charge
+    s_paise = int(round(s_fee * 100))
+    b_paise = 10000
+    tot_paise = s_paise + b_paise
+
     booking = Booking(
         customer_id=current_user.id,
         worker_id=payload.workerId if payload.workerId else None,
         service_id=payload.serviceId,
+        service_fee=s_fee,
+        booking_charge=b_charge,
+        total_amount=tot,
+        service_fee_paise=s_paise,
+        booking_charge_paise=b_paise,
+        total_amount_paise=tot_paise,
+        payment_method="cash",
+        payment_status="pending",
         description=payload.description.strip(),
         location=payload.location.strip(),
         latitude=payload.latitude,
@@ -206,9 +243,12 @@ def assign_worker(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Booking not found")
     
     # Customer or Admin permission
-    if current_user.role == "customer" and booking.customer_id != current_user.id:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="This booking belongs to another customer.")
-    
+    if current_user.role == "customer":
+        if booking.customer_id != current_user.id:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="This booking belongs to another customer.")
+    elif current_user.role != "admin":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Only the customer or an admin can assign a worker to this booking.")
+
     # Status transition check
     assert_transition(booking.status, "worker_assigned")
 
@@ -290,8 +330,15 @@ def cancel_booking(
     if not booking:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Booking not found")
 
-    if current_user.role == "customer" and booking.customer_id != current_user.id:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="This booking belongs to another customer.")
+    if current_user.role == "customer":
+        if booking.customer_id != current_user.id:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="This booking belongs to another customer.")
+    elif current_user.role == "worker":
+        worker = db.query(Worker).filter(Worker.user_id == current_user.id).first()
+        if not worker or booking.worker_id != worker.id:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="You can only cancel bookings assigned to you.")
+    elif current_user.role != "admin":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to cancel this booking.")
 
     cancellable = ["pending", "worker_assigned", "accepted"]
     if booking.status not in cancellable:
@@ -430,11 +477,11 @@ def update_booking_status(
             booking.worker.active_jobs = max(0, booking.worker.active_jobs - 1)
             booking.worker.completed_jobs += 1
             
-            # Calculate worker earnings
+            # Calculate worker earnings strictly from service fee snapshot (platform booking charge is retained by cooperative)
             settings = db.query(CooperativeSettings).first()
             commission = settings.commission_rate if settings else 0.10
-            base_price = booking.service.base_price if booking.service else 300.0
-            payout = base_price * (1.0 - commission)
+            service_fee = booking.service_fee if booking.service_fee is not None else (booking.service.base_price if booking.service else 300.0)
+            payout = round(service_fee * (1.0 - commission), 2)
             booking.worker.earnings += payout
 
         # Notification for customer to review

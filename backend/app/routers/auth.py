@@ -6,11 +6,13 @@ from app.config import settings
 from app.models.user import User
 from app.models.worker import Worker
 from app.models.service import Service
+import re
 from app.schemas.auth import (
     LoginPayload,
     RegisterCustomerPayload,
     RegisterWorkerPayload,
     ForgotPasswordPayload,
+    ResetPasswordPayload,
     UpdateProfilePayload,
 )
 from app.core.security import verify_password, get_password_hash, create_access_token
@@ -39,15 +41,11 @@ def login(payload: LoginPayload, db: Session = Depends(get_db)):
             detail="No account found with this email address."
         )
     
-    # Check password with support for demo password in debug mode
-    is_valid = verify_password(payload.password, user.password_hash)
-    if not is_valid and settings.DEBUG and payload.password in ["password123", "demo123"]:
-        is_valid = True
-
-    if not is_valid:
+    # Strict password verification for all accounts
+    if not verify_password(payload.password, user.password_hash):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid credentials."
+            detail="Invalid email or password."
         )
     
     token = create_access_token({"sub": user.id, "role": user.role, "email": user.email})
@@ -151,7 +149,32 @@ def forgot_password(payload: ForgotPasswordPayload, db: Session = Depends(get_db
         )
     return {
         "success": True,
-        "message": "Password reset instructions have been sent to your email address."
+        "message": "Self-service password reset is available. Please enter your registered phone number and new password."
+    }
+
+@router.post("/reset-password")
+def reset_password(payload: ResetPasswordPayload, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email.ilike(payload.email)).first()
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No account found with this email address."
+        )
+    
+    # Verify phone match against account records
+    db_digits = re.sub(r"\D", "", user.phone or "")
+    input_digits = re.sub(r"\D", "", payload.phone)
+    if not db_digits or not input_digits or not db_digits.endswith(input_digits[-10:]):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="The phone number provided does not match account records."
+        )
+    
+    user.password_hash = get_password_hash(payload.newPassword)
+    db.commit()
+    return {
+        "success": True,
+        "message": "Password updated successfully. You can now log in with your new password."
     }
 
 @router.get("/me")

@@ -19,6 +19,7 @@ interface ScreenHeaderProps {
   title: string;
   subtitle?: string;
   showBack?: boolean;
+  onBack?: () => void;
   right?: React.ReactNode;
   style?: ViewStyle;
   transparent?: boolean;
@@ -28,6 +29,7 @@ export function ScreenHeader({
   title,
   subtitle,
   showBack = false,
+  onBack,
   right,
   style,
   transparent = false,
@@ -51,7 +53,7 @@ export function ScreenHeader({
             accessibilityLabel="Go back"
             style={styles.backButton}
             onPress={() =>
-              router.canGoBack() ? router.back() : router.replace("/")
+              onBack ? onBack() : router.canGoBack() ? router.back() : router.replace("/")
             }
             hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >

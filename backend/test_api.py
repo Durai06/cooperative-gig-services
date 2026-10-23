@@ -77,6 +77,14 @@ def run_tests():
     res = client.post("/api/auth/forgot-password", json={"email": "nonexistent@coopconnect.in"})
     assert_test("Forgot Password Invalid Email", res.status_code == 404, res.text)
 
+    # Auth - Reset Password
+    res = client.post("/api/auth/reset-password", json={
+        "email": "customer@coopconnect.in",
+        "phone": "+91 98765 11111",
+        "newPassword": "password123"
+    })
+    assert_test("Reset Password with Matching Phone", res.status_code == 200 and res.json().get("success"), res.text)
+
     # Auth - Update Profile
     res = client.patch("/api/auth/profile", headers=cust_headers, json={"name": "Arjun Sharma Updated"})
     assert_test("Update Profile", res.status_code == 200 and res.json()["user"]["name"] == "Arjun Sharma Updated", res.text)
@@ -135,8 +143,20 @@ def run_tests():
         "preferredTime": "10:00",
         "emergency": False
     })
-    assert_test("Create Booking", res.status_code == 200 and res.json()["status"] == "pending", res.text)
-    new_bkg_id = res.json()["id"]
+    booking_data = res.json() if res.status_code == 200 else {}
+    has_charge = (
+        res.status_code == 200 and
+        booking_data.get("status") == "pending" and
+        booking_data.get("bookingCharge") == 100.0 and
+        booking_data.get("bookingChargePaise") == 10000 and
+        booking_data.get("totalAmount") == booking_data.get("servicePrice") + 100.0
+    )
+    assert_test("Create Booking with Rs 100 Booking Charge", has_charge, res.text)
+    new_bkg_id = booking_data.get("id")
+
+    # Unauthorized worker assignment check
+    res = client.patch(f"/api/bookings/{new_bkg_id}/assign", headers=wrk_headers, json={"workerId": "wkr-1"})
+    assert_test("Reject Worker Self-Assignment Endpoint Access", res.status_code == 403, res.text)
 
     # Assign worker to booking
     res = client.patch(f"/api/bookings/{new_bkg_id}/assign", headers=cust_headers, json={"workerId": "wkr-1"})

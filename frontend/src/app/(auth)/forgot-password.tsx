@@ -1,6 +1,6 @@
 import { Alert } from "@/components/common/Feedback";
 // ============================================================
-// Sevai One – Forgot Password Screen
+// Sevai One – Self-Service Password Reset Screen
 // ============================================================
 
 import { Button } from "@/components/common/Button";
@@ -9,13 +9,13 @@ import { Colors, Radius, Shadows, Spacing, Typography } from "@/constants";
 import { authService } from "@/services/api/authService";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
-import { ArrowLeft, CheckCircle, Mail } from "lucide-react-native";
+import { ArrowLeft, CheckCircle2, Lock, Mail, Phone } from "lucide-react-native";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
   KeyboardAvoidingView,
-  ScrollView,
   Platform,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -26,13 +26,20 @@ import { z } from "zod";
 
 const schema = z.object({
   email: z.string().email("Enter a valid email address"),
+  phone: z.string().min(10, "Enter your 10-digit registered phone number"),
+  newPassword: z.string().min(6, "Password must be at least 6 characters"),
+  confirmPassword: z.string().min(6, "Confirm password is required"),
+}).refine((data) => data.newPassword === data.confirmPassword, {
+  message: "Passwords do not match",
+  path: ["confirmPassword"],
 });
+
 type FormData = z.infer<typeof schema>;
 
 export default function ForgotPasswordScreen() {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const {
     control,
@@ -40,15 +47,28 @@ export default function ForgotPasswordScreen() {
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      email: "",
+      phone: "",
+      newPassword: "",
+      confirmPassword: "",
+    },
   });
 
   const onSubmit = async (data: FormData) => {
     setSubmitting(true);
     try {
-      await authService.forgotPassword(data.email);
-      setSent(true);
+      await authService.resetPassword({
+        email: data.email.trim(),
+        phone: data.phone.trim(),
+        newPassword: data.newPassword,
+      });
+      setSuccess(true);
     } catch (err: any) {
-      Alert.alert("Error", err.message ?? "Could not send reset link. Ensure the backend server is running.");
+      Alert.alert(
+        "Reset Failed",
+        err.message ?? "Could not reset password. Please verify your details."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -63,6 +83,7 @@ export default function ForgotPasswordScreen() {
         <ScrollView
           contentContainerStyle={styles.container}
           keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
         >
           <TouchableOpacity
             style={styles.backBtn}
@@ -71,17 +92,17 @@ export default function ForgotPasswordScreen() {
             <ArrowLeft size={22} color={Colors.textPrimary} />
           </TouchableOpacity>
 
-          {sent ? (
+          {success ? (
             <View style={styles.successWrap}>
               <View style={styles.successIcon}>
-                <CheckCircle size={48} color={Colors.success} />
+                <CheckCircle2 size={54} color={Colors.success} />
               </View>
-              <Text style={styles.successTitle}>Check Your Inbox</Text>
+              <Text style={styles.successTitle}>Password Updated</Text>
               <Text style={styles.successMsg}>
-                If an account with this email exists, password reset instructions have been sent.
+                Your password has been reset successfully. You can now log in using your new credentials.
               </Text>
               <Button
-                label="Back to Login"
+                label="Back to Sign In"
                 onPress={() => router.back()}
                 fullWidth
                 size="lg"
@@ -90,9 +111,9 @@ export default function ForgotPasswordScreen() {
             </View>
           ) : (
             <>
-              <Text style={styles.title}>Forgot Password</Text>
+              <Text style={styles.title}>Reset Password</Text>
               <Text style={styles.subtitle}>
-                Enter your registered email address to receive password reset instructions.
+                Verify your registered account details to set a new password.
               </Text>
 
               <View style={styles.form}>
@@ -101,8 +122,8 @@ export default function ForgotPasswordScreen() {
                   name="email"
                   render={({ field: { onChange, onBlur, value } }) => (
                     <Input
-                      label="Email Address"
-                      placeholder="you@example.com"
+                      label="Registered Email"
+                      placeholder="e.g. arjun@example.com"
                       value={value}
                       onChangeText={onChange}
                       onBlur={onBlur}
@@ -113,12 +134,65 @@ export default function ForgotPasswordScreen() {
                     />
                   )}
                 />
+
+                <Controller
+                  control={control}
+                  name="phone"
+                  render={({ field: { onChange, onBlur, value } }) => (
+                    <Input
+                      label="Registered Phone Number"
+                      placeholder="e.g. 98765 11111"
+                      value={value}
+                      onChangeText={onChange}
+                      onBlur={onBlur}
+                      error={errors.phone?.message}
+                      leftIcon={<Phone size={18} color={Colors.textSecondary} />}
+                      keyboardType="phone-pad"
+                    />
+                  )}
+                />
+
+                <Controller
+                  control={control}
+                  name="newPassword"
+                  render={({ field: { onChange, onBlur, value } }) => (
+                    <Input
+                      label="New Password"
+                      placeholder="At least 6 characters"
+                      secureTextEntry
+                      value={value}
+                      onChangeText={onChange}
+                      onBlur={onBlur}
+                      error={errors.newPassword?.message}
+                      leftIcon={<Lock size={18} color={Colors.textSecondary} />}
+                    />
+                  )}
+                />
+
+                <Controller
+                  control={control}
+                  name="confirmPassword"
+                  render={({ field: { onChange, onBlur, value } }) => (
+                    <Input
+                      label="Confirm New Password"
+                      placeholder="Re-enter new password"
+                      secureTextEntry
+                      value={value}
+                      onChangeText={onChange}
+                      onBlur={onBlur}
+                      error={errors.confirmPassword?.message}
+                      leftIcon={<Lock size={18} color={Colors.textSecondary} />}
+                    />
+                  )}
+                />
+
                 <Button
-                  label="Send Reset Link"
+                  label="Update Password"
                   onPress={handleSubmit(onSubmit)}
                   loading={submitting}
                   fullWidth
                   size="lg"
+                  style={{ marginTop: Spacing.md }}
                 />
               </View>
             </>
@@ -132,7 +206,7 @@ export default function ForgotPasswordScreen() {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.background },
   kav: { flex: 1 },
-  container: { flexGrow: 1, padding: Spacing.base },
+  container: { flexGrow: 1, padding: Spacing.base, paddingBottom: Spacing.xxxl },
   backBtn: { marginBottom: Spacing.xl, padding: 4, alignSelf: "flex-start" },
   title: {
     fontSize: Typography.fontSize.display,
@@ -156,25 +230,29 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    paddingVertical: Spacing.xxl,
     gap: Spacing.md,
   },
   successIcon: {
-    width: 96,
-    height: 96,
-    borderRadius: 48,
-    backgroundColor: Colors.successLight,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: "#EDFAF0",
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: Spacing.sm,
   },
   successTitle: {
     fontSize: Typography.fontSize.xxl,
     fontWeight: Typography.fontWeight.bold,
     color: Colors.textPrimary,
+    textAlign: "center",
   },
   successMsg: {
     fontSize: Typography.fontSize.md,
     color: Colors.textSecondary,
     textAlign: "center",
     lineHeight: 22,
+    maxWidth: 320,
   },
 });
